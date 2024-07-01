@@ -1,0 +1,41 @@
+.navbar-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
+    font-size: 1.2rem;
+    width: 100%;
+    background: #000000;
+}
+
+.nav-element {
+    color: #fff;
+    
+}
+
+.nav-element:hover {
+    text-decoration: underline;
+}
+
+.fnav-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
+    font-size: 1.2rem;
+    width: 100%;
+    align-items: center;
+    background: #000000;
+    hr {
+            height: 95%;
+        }   
+}
+.fnav-container .nav-element{
+    font-size: 3rem;
+    text-decoration: none;
+}
+.fnav-container .nav-element:hover{
+    font-size: 3rem;
+    text-decoration: underline;   
+}
