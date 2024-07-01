@@ -15,9 +15,10 @@ function App() {
         {location && <Navbar />}
         <Routes>
           <Route path="/form/:task_id" element={<Form />} />
-          <Route path="/secret" element={<Admin />} />
-          <Route path="/secret/react-tasks" element={<ReactTasks />} />
-          <Route path="/secret/express-tasks" element={<ExpressTasks />} />
+          <Route path="/secret" element={<Admin />}>
+            <Route path="react-tasks" element={<ReactTasks />} />
+            <Route path="express-tasks" element={<ExpressTasks />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </div>

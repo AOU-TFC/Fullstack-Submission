@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "Styles/TaskCreator.css";
 import ID_Generator from "Services/ID_Generator";
+import { createTask } from "Services/Creations";
 
 export default function TaskCreator() {
   const [taskInfo, setTaskInfo] = useState({
@@ -15,7 +16,9 @@ export default function TaskCreator() {
   };
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(`/form/${taskInfo.TaskId}`);
+    navigator.clipboard
+      .writeText(`${window.location.hostname}/form/${taskInfo.TaskId}`)
+      .then(alert("Link Copied!"));
   };
 
   const handleGenerate = () => {
@@ -23,9 +26,14 @@ export default function TaskCreator() {
     setTaskInfo({ ...taskInfo, TaskId: ID });
   };
 
+  const handleCreate = async (e) => {
+    e.preventDefault();
+    createTask(taskInfo);
+  };
+
   return (
     <React.Fragment>
-      <form className="creator-container">
+      <form className="creator-container" onSubmit={handleCreate}>
         <div className="input">
           <input
             type="text"
@@ -43,13 +51,15 @@ export default function TaskCreator() {
             value={taskInfo.TaskId}
           />
           <button type="button" className="copy" onClick={handleCopy}>
-            CC
+            <ion-icon name="copy-outline"></ion-icon>
           </button>
           <button type="button" className="generate" onClick={handleGenerate}>
-            Generate
+            <ion-icon name="sparkles-outline"></ion-icon>
           </button>
         </div>
-        <button type="submit">Create</button>
+        <button type="submit" className="createBtn">
+          Create
+        </button>
       </form>
     </React.Fragment>
   );

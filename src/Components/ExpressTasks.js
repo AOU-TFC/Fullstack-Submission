@@ -1,7 +1,14 @@
-import React from 'react'
+import React from "react";
+import Sidebar from "./Sidebar";
+import Tasks from "./Tasks";
 
 export default function ExpressTasks() {
   return (
-    <div>ExpressTasks</div>
-  )
+    <React.Fragment>
+      <div className="wrapper">
+        <Sidebar />
+        <Tasks />
+      </div>
+    </React.Fragment>
+  );
 }

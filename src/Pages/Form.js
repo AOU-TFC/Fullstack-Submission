@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import "Styles/Form.css";
-import { db } from "API/firebase";
-import { collection, addDoc } from "firebase/firestore";
 import { useParams } from "react-router-dom";
+import { addSubmission } from "Services/Creations";
 
 export default function Form() {
-  const task_id = useParams();
+  const { task_id } = useParams();
   const [formData, setFormData] = useState({
     fName: "",
     Id: "",
@@ -20,12 +19,7 @@ export default function Form() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      await addDoc(collection(db, "Submissions"), formData);
-      alert("Task Submitted");
-    } catch (e) {
-      console.error("Error adding document: ", e);
-    }
+    addSubmission(task_id, formData);
   };
 
   return (
