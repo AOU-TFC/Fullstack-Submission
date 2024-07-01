@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "Styles/Tasks.css";
+import TaskCreator from "./TaskCreator";
 export default function Tasks() {
   const [tasks, setTasks] = useState({
     fName: "",
@@ -10,6 +11,7 @@ export default function Tasks() {
   return (
     <React.Fragment>
       <div className="tasks-content">
+        <TaskCreator />
         <div className="table-container">
           <h2>
             Table of submits<small> TFC</small>
@@ -19,7 +21,7 @@ export default function Tasks() {
               <div className="col col-1">Short ID</div>
               <div className="col col-2">Student Name</div>
               <div className="col col-3">Branch</div>
-              <div className="col col-4">Repository</div>
+              <div className="col col-4">reposetory</div>
             </li>
             <li className="table-row">
               <div className="col col-1" data-label="Short ID">
@@ -31,7 +33,7 @@ export default function Tasks() {
               <div className="col col-3" data-label="Branch">
                 Tripoli
               </div>
-              <div className="col col-4" data-label="repository">
+              <div className="col col-4" data-label="reposetory">
                 <a
                   className="repo"
                   href="https://github.com/sn-sniper/submit-ui.git"
@@ -50,7 +52,7 @@ export default function Tasks() {
               <div className="col col-3" data-label="Branch">
                 Badaro
               </div>
-              <div className="col col-4" data-label="repository">
+              <div className="col col-4" data-label="reposetory">
                 <a
                   className="repo"
                   href="https://github.com/sn-sniper/submit-ui.git"
@@ -69,7 +71,7 @@ export default function Tasks() {
               <div className="col col-3" data-label="Branch">
                 Tripoli
               </div>
-              <div className="col col-4" data-label="repository">
+              <div className="col col-4" data-label="reposetory">
                 <a
                   className="repo"
                   href="https://github.com/sn-sniper/submit-ui.git"
@@ -88,7 +90,7 @@ export default function Tasks() {
               <div className="col col-3" data-label="Branch">
                 Antelias
               </div>
-              <div className="col col-4" data-label="repository">
+              <div className="col col-4" data-label="reposetory">
                 <a
                   className="repo"
                   href="https://github.com/sn-sniper/submit-ui.git"
