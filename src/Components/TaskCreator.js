@@ -14,6 +14,10 @@ export default function TaskCreator() {
     setTaskInfo({ ...taskInfo, [e.target.name]: e.target.value });
   };
 
+  const handleCopy = () => {
+    navigator.clipboard.writeText(`/form/${taskInfo.TaskId}`);
+  };
+
   const handleGenerate = () => {
     let ID = ID_Generator();
     setTaskInfo({ ...taskInfo, TaskId: ID });
@@ -38,7 +42,7 @@ export default function TaskCreator() {
             readOnly
             value={taskInfo.TaskId}
           />
-          <button type="button" className="copy">
+          <button type="button" className="copy" onClick={handleCopy}>
             CC
           </button>
           <button type="button" className="generate" onClick={handleGenerate}>
