@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import "Styles/Tasks.css"
+import "Styles/Tasks.css";
+import TaskCreator from './TaskCreator';
 export default function Tasks() {
     const [tasks,setTasks] = useState({
         fName: '',
@@ -10,6 +11,7 @@ export default function Tasks() {
     return (
         <React.Fragment>
             <div className='tasks-content'>
+                <TaskCreator />
                 <div className="table-container">
                     <h2>Table of submits<small> TFC</small></h2>
                     <ul className="responsive-table">
