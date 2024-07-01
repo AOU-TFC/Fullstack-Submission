@@ -1,6 +1,6 @@
 .sidebar-container {
     width: 13rem;
-    height: calc(100vh - 88px);
+    min-height: calc(100vh - 88px);
     background: linear-gradient(45deg,
             #3498db,
             #2ecc71);

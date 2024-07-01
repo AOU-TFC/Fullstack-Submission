@@ -20,10 +20,10 @@ export default function TaskCreator() {
                 </div>
                 <div className='input'>
                     <input type='text' placeholder='ID' name='TaskID' readOnly onChange={handleInput} />
-                    <button type='button' className='copy'>CC</button>
-                    <button type='button' className='generate' >Generate</button>
+                    <button type='button' className='copy'><ion-icon name="copy-outline"></ion-icon></button>
+                    <button type='button' className='generate' ><ion-icon name="sparkles-outline"></ion-icon></button>
                 </div>
-                <button type='submit'>Create</button>
+                <button type='submit' className='createBtn'>Create</button>
             </form>
         </React.Fragment>
     )
