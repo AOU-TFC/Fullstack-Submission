@@ -1,16 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import "Styles/TaskCreator.css";
+import ID_Generator from "Services/ID_Generator";
 
 export default function TaskCreator() {
-    const [taskInfo, setTaskInfo] = useState({
-        TaskName: '',
-        TaskId: '',
-        Submissions: []
-    });
+  const [taskInfo, setTaskInfo] = useState({
+    TaskName: "",
+    TaskId: "",
+    Submissions: [],
+  });
 
-    const handleInput = (e) => {
-        setTaskInfo({ ...taskInfo, [e.target.name]: e.taget.value });
-    }
+  const handleInput = (e) => {
+    e.preventDefault();
+    setTaskInfo({ ...taskInfo, [e.target.name]: e.target.value });
+  };
+
+  const handleGenerate = () => {
+    let ID = ID_Generator();
+    setTaskInfo({ ...taskInfo, TaskId: ID });
+  };
 
     return (
         <React.Fragment>
@@ -20,10 +27,10 @@ export default function TaskCreator() {
                 </div>
                 <div className='input'>
                     <input type='text' placeholder='ID' name='TaskID' readOnly onChange={handleInput} />
-                    <button type='button' className='copy'><ion-icon name="copy-outline"></ion-icon></button>
-                    <button type='button' className='generate' ><ion-icon name="sparkles-outline"></ion-icon></button>
+                    <button type='button' className='copy'>CC</button>
+                    <button type='button' className='generate' >Generate</button>
                 </div>
-                <button type='submit' className='createBtn'>Create</button>
+                <button type='submit'>Create</button>
             </form>
         </React.Fragment>
     )
