@@ -10,22 +10,23 @@
 .creator-container .input {
     padding: .5rem;
     border: none;
-    width: fit-content;
+    flex: 1;
     display: flex;
     gap: 1rem;
 }
 
 .creator-container .input input {
     outline: none;
-    border: 1px solid #ddd;
+    border: none;
+    border-bottom: 1px solid #aaa;
     padding: .5rem 1rem;
-    border-radius: 1rem;
-    width: 300px;
+    width: 100%;
     transition: .2s ease-in-out;
 }
 
 .creator-container .input input:focus {
-    border: 1px solid #185fd1;
+    border: 1px solid #837DFF;
+    border-radius: .5rem;
 }
 
 .creator-container .input .copy {
@@ -48,11 +49,19 @@
     border-radius: 5px;
 }
 
-.creator-container .createBtn{
-    width: 330px;
-    padding: .4rem;
-    border-radius: 1rem;
-    outline: none;
-    border: 1px solid #a1a1a1;
-
+.creator-container .createBtn {
+    display: block;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    background-color: #4F46E5;
+    color: #ffffff;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    width: 100%;
+    border-radius: 0.5rem;
+    border: none;
+    text-transform: uppercase;
 }
