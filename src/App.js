@@ -6,6 +6,7 @@ import Admin from "Pages/Admin";
 import ReactTasks from "Components/ReactTasks";
 import ExpressTasks from "Components/ExpressTasks";
 import Navbar from "Components/Navbar";
+import PageNotFound from "Pages/PageNotFound";
 
 function App() {
   const location = window.location.pathname.includes("/secret");
@@ -23,6 +24,7 @@ function App() {
               <Route path=":task" />
             </Route>
           </Route>
+          <Route path="*" element={<PageNotFound />} /> 
         </Routes>
       </BrowserRouter>
     </div>
