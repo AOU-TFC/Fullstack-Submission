@@ -16,8 +16,12 @@ function App() {
         <Routes>
           <Route path="/form/:task_id" element={<Form />} />
           <Route path="/secret" element={<Admin />}>
-            <Route path="react-tasks" element={<ReactTasks />} />
-            <Route path="express-tasks" element={<ExpressTasks />} />
+            <Route path="react-tasks" element={<ReactTasks />}>
+              <Route path=":task" />
+            </Route>
+            <Route path="express-tasks" element={<ExpressTasks />}>
+              <Route path=":task" />
+            </Route>
           </Route>
         </Routes>
       </BrowserRouter>

@@ -1,15 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "Styles/Sidebar.css";
 import { getData } from "Services/GetData";
+import { Link } from "react-router-dom";
 export default function Sidebar() {
   const [data, setData] = useState([]);
+  const stopRender = useRef(false);
   useEffect(() => {
-    const fetchData = async () => {
-      const fetchedData = await getData();
-      setData(fetchedData);
-    };
-    fetchData();
-  }, []);
+    stopRender.current = true;
+    if (stopRender.current === true) {
+      const fetchData = async () => {
+        const fetchedData = await getData();
+        setData(fetchedData);
+      };
+      fetchData();
+      stopRender.current = false;
+    }
+  }, [data]);
   return (
     <React.Fragment>
       <div className="sidebar-container">
@@ -36,7 +42,7 @@ export default function Sidebar() {
           <ul>
             {data.map((item) => (
               <li key={item.id}>
-                <pre>{item.TaskName}</pre>
+                <Link to={item.TaskID}>{item.TaskName}</Link>
               </li>
             ))}
           </ul>
