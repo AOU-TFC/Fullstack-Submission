@@ -17,7 +17,11 @@ export default function TaskCreator() {
 
   const handleCopy = () => {
     navigator.clipboard
-      .writeText(`${window.location.hostname}/form/${taskInfo.TaskId}`)
+      .writeText(
+        `${window.location.protocol + window.location.hostname}/form/${
+          taskInfo.TaskId
+        }`
+      )
       .then(alert("Link Copied!"));
   };
 
@@ -28,7 +32,8 @@ export default function TaskCreator() {
 
   const handleCreate = async (e) => {
     e.preventDefault();
-    createTask(taskInfo);
+    await createTask(taskInfo);
+    window.location.reload();
   };
 
   return (
@@ -51,10 +56,10 @@ export default function TaskCreator() {
             value={taskInfo.TaskId}
           />
           <button type="button" className="copy" onClick={handleCopy}>
-            <ion-icon name="copy-outline"></ion-icon>
+            <ion-icon id="copy" name="copy-outline"></ion-icon>
           </button>
           <button type="button" className="generate" onClick={handleGenerate}>
-            <ion-icon name="sparkles-outline"></ion-icon>
+            <ion-icon id="generate" name="sparkles-outline"></ion-icon>
           </button>
         </div>
         <button type="submit" className="createBtn">

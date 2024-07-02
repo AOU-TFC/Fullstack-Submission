@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import "Styles/Sidebar.css";
 import { getData } from "Services/GetData";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 export default function Sidebar() {
+  const path = useLocation();
   const [data, setData] = useState([]);
   const stopRender = useRef(false);
   useEffect(() => {
@@ -15,7 +16,7 @@ export default function Sidebar() {
       fetchData();
       stopRender.current = false;
     }
-  }, [data]);
+  }, []);
   return (
     <React.Fragment>
       <div className="sidebar-container">
@@ -41,7 +42,10 @@ export default function Sidebar() {
         <div className="tasks-container">
           <ul>
             {data.map((item) => (
-              <li key={item.id}>
+              <li
+                key={item.id}
+                className={path.pathname.includes(item.TaskID) ? "active" : ""}
+              >
                 <Link to={item.TaskID}>{item.TaskName}</Link>
               </li>
             ))}
