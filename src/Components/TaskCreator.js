@@ -18,9 +18,7 @@ export default function TaskCreator() {
   const handleCopy = () => {
     navigator.clipboard
       .writeText(
-        `${window.location.protocol + window.location.hostname}/form/${
-          taskInfo.TaskId
-        }`
+        `${window.location.protocol}//${window.location.hostname}/form/${taskInfo.TaskId}`
       )
       .then(alert("Link Copied!"));
   };

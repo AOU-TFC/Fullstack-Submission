@@ -5,11 +5,6 @@ import App from "./App";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 
-const isSecretPath = () => {
-  const secretPath = "/secret"; // Define your secret path here
-  return window.location.pathname === secretPath;
-};
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
@@ -20,7 +15,7 @@ root.render(
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://cra.link/PWA
-if (isSecretPath()) {
+if (window.location.pathname.includes("/secret")) {
   serviceWorkerRegistration.register();
 } else {
   serviceWorkerRegistration.unregister();

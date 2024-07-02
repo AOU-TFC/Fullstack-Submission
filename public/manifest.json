@@ -2,7 +2,7 @@
   "theme_color": "#000272",
   "background_color": "#341677",
   "display": "standalone",
-  "scope": "/",
+  "scope": "/secret",
   "start_url": "/secret",
   "name": "FullStack | Submission",
   "short_name": "FS Sub",
