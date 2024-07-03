@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import "Styles/Tasks.css";
-import TaskCreator from "./TaskCreator";
+// import TaskCreator from "./TaskCreator";
 import { getData } from "Services/GetData";
+import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 export default function Tasks() {
   const [data, setData] = useState([]);
@@ -22,7 +23,6 @@ export default function Tasks() {
   return (
     <React.Fragment>
       <div className="tasks-content">
-        <TaskCreator />
         <div className="table-container">
           <h2>
             Table of submits<small> TFC</small>
@@ -46,9 +46,9 @@ export default function Tasks() {
                   {item.branch}
                 </div>
                 <div className="col col-4" data-label="repository">
-                  <a className="repo" href={item.repo}>
+                  <Link className="repo" to={item.repo} target="_blank">
                     {item.repo}
-                  </a>
+                  </Link>
                 </div>
               </li>
             ))}

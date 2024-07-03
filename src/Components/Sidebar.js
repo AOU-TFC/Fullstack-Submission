@@ -1,11 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import "Styles/Sidebar.css";
+import TaskCreator from "./TaskCreator";
 import { getData } from "Services/GetData";
 import { Link, useLocation } from "react-router-dom";
 export default function Sidebar() {
   const path = useLocation();
   const [data, setData] = useState([]);
   const stopRender = useRef(false);
+  const [modalOpen,setModalOpen] = useState(false);
+
   useEffect(() => {
     stopRender.current = true;
     if (stopRender.current === true) {
@@ -19,8 +22,9 @@ export default function Sidebar() {
   }, []);
   return (
     <React.Fragment>
+      {modalOpen && (<TaskCreator setModalOpen={setModalOpen}/>)}
       <div className="sidebar-container">
-        <div className="create-btn">
+        <div className="create-btn" onClick={()=>{setModalOpen(true)}}>
           <button>
             <span>
               <svg
