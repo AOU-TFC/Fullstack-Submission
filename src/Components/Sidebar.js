@@ -8,6 +8,7 @@ export default function Sidebar() {
   const [data, setData] = useState([]);
   const stopRender = useRef(false);
   const [modalOpen,setModalOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     stopRender.current = true;
@@ -20,12 +21,16 @@ export default function Sidebar() {
       stopRender.current = false;
     }
   }, []);
+  const toggleOpen=()=>{
+    setIsOpen(!isOpen);
+  }
   return (
     <React.Fragment>
       {modalOpen && (<TaskCreator setModalOpen={setModalOpen}/>)}
-      <div className="sidebar-container">
-        <div className="create-btn" onClick={()=>{setModalOpen(true)}}>
-          <button>
+      <div className={`sidebar-container ${isOpen ? 'open' : ''}`}>
+        <span className="expandBtn" onClick={toggleOpen}>Click to expand</span>
+        <div className="create-btn">
+          <button onClick={() => { setModalOpen(true) }}>
             <span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +55,7 @@ export default function Sidebar() {
                 key={item.id}
                 className={path.pathname.includes(item.TaskID) ? "active" : ""}
               >
-                <Link to={item.TaskID}>{item.TaskName}</Link>
+                <Link to={item.TaskID} onClick={toggleOpen}>{item.TaskName}</Link>
               </li>
             ))}
           </ul>

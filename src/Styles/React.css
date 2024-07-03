@@ -1,3 +1,9 @@
 .wrapper{
     display: flex;
 }
+
+@media screen and (max-width : 760px) {
+    .wrapper{
+        flex-direction: column;
+    }
+}

@@ -2,7 +2,7 @@
     width: 100%;
     display: flex;
     justify-content: space-around;
-    padding: 2rem;
+    padding: 2rem ;
     font-size: 1.2rem;
     width: 100%;
     background: #000272;
@@ -38,4 +38,19 @@
 .fnav-container .nav-element:hover{
     font-size: 3rem;
     text-decoration: underline;   
+}
+
+@media screen and (max-width:760px){
+    .fnav-container{
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        justify-content: space-around;
+        hr{
+            display: none;
+        }   
+    }
+    .navbar-container{
+        padding: 1rem 2rem;
+    }
 }

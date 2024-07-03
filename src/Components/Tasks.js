@@ -25,8 +25,11 @@ export default function Tasks() {
       <div className="tasks-content">
         <div className="table-container">
           <h2>
-            Table of submits<small> TFC</small>
+            Table of submits{' '}
+            {window.location.pathname.includes('/react-tasks') && <small>React</small>}
+            {window.location.pathname.includes('/express-tasks') && <small>Express</small>}
           </h2>
+
           <ul className="responsive-table">
             <li className="table-header">
               <div className="col col-1">Short ID</div>
