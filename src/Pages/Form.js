@@ -47,7 +47,7 @@ export default function Form() {
             <input
               className="input"
               type="text"
-              placeholder="Reposetory Link"
+              placeholder="Repository Link"
               name="repo"
               onChange={handleChange}
               required
